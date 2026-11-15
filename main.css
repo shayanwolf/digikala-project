@@ -1,0 +1,4651 @@
+@font-face {
+    font-family: digikala;
+    src: url(./font-digikala/5.woff);
+}
+
+*{
+    font-family: digikala;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+main {
+    width: 100%;
+    max-width: 100%;
+}
+.header-ads>a>img{
+    width: 100%;
+    height: 60px;
+}
+.icon-digikala>img{
+    width: 195px;
+    height: 30px;
+    margin: 15px 13px; 
+}
+
+/* =========================================================
+   MEGA MENU
+========================================================= */
+
+.main-header {
+    position: relative;
+}
+
+.category {
+    position: relative;
+}
+
+
+/* =========================================================
+   خود مگا منو
+========================================================= */
+
+.mega-menu {
+    position: absolute;
+
+    top: calc(100% + 1px);
+    right: 20px;
+
+    width: max-content;
+    max-width: calc(100vw - 40px);
+
+    height: auto;
+    max-height: 460px;
+
+    background: #fff;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 0 0 12px 12px;
+
+    display: none;
+
+    direction: rtl;
+
+    z-index: 9999;
+
+    box-sizing: border-box;
+
+    /*
+       سایه خود مگامنو
+    */
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.15),
+        0 0 0 100vmax rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   باز شدن مگا منو
+========================================================= */
+
+.category:hover .mega-menu {
+    display: flex;
+}
+
+
+/* =========================================================
+   دسته بندی های سمت راست
+========================================================= */
+
+.mega-categories {
+    flex: 0 0 210px;
+
+    width: 210px;
+    min-width: 210px;
+
+    max-height: 460px;
+
+    background: #f7f7f7;
+
+    border-left: 1px solid #eee;
+
+    padding: 10px 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    direction: rtl;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   Scrollbar دسته بندی ها
+========================================================= */
+
+.mega-categories::-webkit-scrollbar {
+    width: 5px;
+}
+
+.mega-categories::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.mega-categories::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.mega-categories::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+
+/* =========================================================
+   آیتم های دسته بندی
+========================================================= */
+
+.mega-category {
+    width: 100%;
+    min-height: 48px;
+
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 13px;
+    color: #555;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+
+    box-sizing: border-box;
+
+    background: transparent;
+    border-right: 2px solid transparent;
+}
+
+
+/* آیکون */
+
+.mega-category i {
+    flex: 0 0 auto;
+    font-size: 19px;
+}
+
+
+/* =========================================================
+   Hover
+========================================================= */
+
+.mega-category:hover {
+    background: #fff;
+    color: #ef394e;
+}
+
+
+/* =========================================================
+   Active پیش فرض
+========================================================= */
+
+.mega-category.active {
+    background: transparent;
+    color: #555;
+    border-right: 2px solid transparent;
+}
+
+
+/* =========================================================
+   وقتی واقعاً روی موبایل هستیم
+========================================================= */
+
+.mega-menu:has(.mega-category:nth-child(1):hover)
+.mega-category:nth-child(1) {
+    background: #fff;
+    color: #ef394e;
+    border-right-color: #ef394e;
+}
+
+
+/* =========================================================
+   وقتی روی لپ تاپ هستیم
+========================================================= */
+
+.mega-menu:has(.mega-category:nth-child(2):hover)
+.mega-category:nth-child(2) {
+    background: #fff;
+    color: #ef394e;
+    border-right-color: #ef394e;
+}
+
+
+/* =========================================================
+   وقتی روی کالای دیجیتال هستیم
+========================================================= */
+
+.mega-menu:has(.mega-category:nth-child(3):hover)
+.mega-category:nth-child(3) {
+    background: #fff;
+    color: #ef394e;
+    border-right-color: #ef394e;
+}
+
+
+/* =========================================================
+   وقتی روی خانه و آشپزخانه هستیم
+========================================================= */
+
+.mega-menu:has(.mega-category:nth-child(4):hover)
+.mega-category:nth-child(4) {
+    background: #fff;
+    color: #ef394e;
+    border-right-color: #ef394e;
+}
+
+
+/* =========================================================
+   محتوای مگا منو
+========================================================= */
+
+.mega-content {
+    flex: 0 0 auto;
+
+    padding: 22px 25px;
+
+    max-height: 460px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    direction: rtl;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   عرض محتوا بر اساس تعداد ستون
+========================================================= */
+
+/*
+   ستون = 220px
+   فاصله = 30px
+   padding = 50px
+*/
+
+
+/* =========================
+   4 ستون
+   4 × 220 = 880
+   3 × 30  = 90
+   + 50 padding
+   = 1020px
+========================= */
+
+.mega-content {
+    width: 1020px;
+}
+
+
+/* =========================
+   3 ستون
+   3 × 220 = 660
+   2 × 30  = 60
+   + 50 padding
+   = 770px
+========================= */
+
+.mega-content:has(
+    .mega-columns > .mega-column:nth-child(3):last-child
+) {
+    width: 770px;
+}
+
+
+/* =========================
+   2 ستون
+   2 × 220 = 440
+   1 × 30  = 30
+   + 50 padding
+   = 520px
+========================= */
+
+.mega-content:has(
+    .mega-columns > .mega-column:nth-child(2):last-child
+) {
+    width: 520px;
+}
+
+
+/* =========================================================
+   عنوان بالای محتوا
+========================================================= */
+
+.mega-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    margin-bottom: 22px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    color: #114787;
+
+    cursor: pointer;
+}
+
+.mega-title i {
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   ستون ها
+========================================================= */
+
+.mega-columns {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 220px);
+
+    gap: 30px;
+
+    align-items: start;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   3 ستون
+========================================================= */
+
+.mega-columns:has(
+    > .mega-column:nth-child(3):last-child
+) {
+    grid-template-columns:
+        repeat(3, 220px);
+}
+
+
+/* =========================================================
+   2 ستون
+========================================================= */
+
+.mega-columns:has(
+    > .mega-column:nth-child(2):last-child
+) {
+    grid-template-columns:
+        repeat(2, 220px);
+}
+
+
+/* =========================================================
+   ستون
+========================================================= */
+
+.mega-column {
+    width: 220px;
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   عنوان هر ستون
+========================================================= */
+
+.mega-column h3 {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 4px;
+
+    margin: 0 0 12px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    color: #333;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+}
+
+.mega-column h3:hover {
+    color: #ef394e;
+    background: transparent;
+}
+
+.mega-column h3:hover i {
+    color: #ef394e;
+}
+
+.mega-column h3 i {
+    flex: 0 0 auto;
+
+    font-size: 19px;
+}
+
+
+/* =========================================================
+   لینک های داخل ستون
+========================================================= */
+
+.mega-column a {
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 10px;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    color: #777;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+
+    box-sizing: border-box;
+
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+.mega-column a:hover {
+    color: #ef394e;
+    background: transparent;
+}
+
+
+/* =========================================================
+   حذف افکت after لینک های هدر
+========================================================= */
+
+.mega-menu a::after {
+    display: none !important;
+    content: none !important;
+}
+
+
+/* =========================================================
+   Scrollbar محتوای مگا منو
+========================================================= */
+
+.mega-content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.mega-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.mega-content::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   نمایش محتوا - حالت اولیه
+========================================================= */
+
+.mobile-content {
+    display: block;
+}
+
+.laptop-content,
+.digital-content,
+.home-content {
+    display: none;
+}
+
+
+/* =========================================================
+   موبایل
+========================================================= */
+
+.mega-menu:has(
+    .mega-category:nth-child(1):hover
+) .mobile-content {
+    display: block;
+}
+
+.mega-menu:has(
+    .mega-category:nth-child(1):hover
+) .laptop-content,
+.mega-menu:has(
+    .mega-category:nth-child(1):hover
+) .digital-content,
+.mega-menu:has(
+    .mega-category:nth-child(1):hover
+) .home-content {
+    display: none;
+}
+
+
+/* وقتی موس داخل محتوای موبایل است */
+
+.mega-menu:has(.mobile-content:hover) .mobile-content {
+    display: block;
+}
+
+.mega-menu:has(.mobile-content:hover) .laptop-content,
+.mega-menu:has(.mobile-content:hover) .digital-content,
+.mega-menu:has(.mobile-content:hover) .home-content {
+    display: none;
+}
+
+
+/* =========================================================
+   لپ تاپ
+========================================================= */
+
+.mega-menu:has(
+    .mega-category:nth-child(2):hover
+) .laptop-content {
+    display: block;
+}
+
+.mega-menu:has(
+    .mega-category:nth-child(2):hover
+) .mobile-content,
+.mega-menu:has(
+    .mega-category:nth-child(2):hover
+) .digital-content,
+.mega-menu:has(
+    .mega-category:nth-child(2):hover
+) .home-content {
+    display: none;
+}
+
+
+/* وقتی موس داخل محتوای لپ تاپ است */
+
+.mega-menu:has(.laptop-content:hover) .laptop-content {
+    display: block;
+}
+
+.mega-menu:has(.laptop-content:hover) .mobile-content,
+.mega-menu:has(.laptop-content:hover) .digital-content,
+.mega-menu:has(.laptop-content:hover) .home-content {
+    display: none;
+}
+
+
+/* =========================================================
+   کالای دیجیتال
+========================================================= */
+
+.mega-menu:has(
+    .mega-category:nth-child(3):hover
+) .digital-content {
+    display: block;
+}
+
+.mega-menu:has(
+    .mega-category:nth-child(3):hover
+) .mobile-content,
+.mega-menu:has(
+    .mega-category:nth-child(3):hover
+) .laptop-content,
+.mega-menu:has(
+    .mega-category:nth-child(3):hover
+) .home-content {
+    display: none;
+}
+
+
+/* وقتی موس داخل محتوای دیجیتال است */
+
+.mega-menu:has(.digital-content:hover) .digital-content {
+    display: block;
+}
+
+.mega-menu:has(.digital-content:hover) .mobile-content,
+.mega-menu:has(.digital-content:hover) .laptop-content,
+.mega-menu:has(.digital-content:hover) .home-content {
+    display: none;
+}
+
+
+/* =========================================================
+   خانه و آشپزخانه
+========================================================= */
+
+.mega-menu:has(
+    .mega-category:nth-child(4):hover
+) .home-content {
+    display: block;
+}
+
+.mega-menu:has(
+    .mega-category:nth-child(4):hover
+) .mobile-content,
+.mega-menu:has(
+    .mega-category:nth-child(4):hover
+) .laptop-content,
+.mega-menu:has(
+    .mega-category:nth-child(4):hover
+) .digital-content {
+    display: none;
+}
+
+
+/* وقتی موس داخل محتوای خانه و آشپزخانه است */
+
+.mega-menu:has(.home-content:hover) .home-content {
+    display: block;
+}
+
+.mega-menu:has(.home-content:hover) .mobile-content,
+.mega-menu:has(.home-content:hover) .laptop-content,
+.mega-menu:has(.home-content:hover) .digital-content {
+    display: none;
+}
+
+
+/* =========================================================
+   فعال بودن فقط دسته فعلی
+========================================================= */
+
+
+/* اگر روی محتوای موبایل هستیم */
+
+.mega-menu:has(.mobile-content:hover)
+.mega-category:nth-child(1) {
+    background: #fff;
+    color: #ef394e;
+    border-right-color: #ef394e;
+}
+
+
+/* اگر روی محتوای لپ تاپ هستیم */
+
+.mega-menu:has(.laptop-content:hover)
+.mega-category:nth-child(2) {
+    background: #fff;
+    color: #ef394e;
+    border-right-color: #ef394e;
+}
+
+
+/* اگر روی محتوای کالای دیجیتال هستیم */
+
+.mega-menu:has(.digital-content:hover)
+.mega-category:nth-child(3) {
+    background: #fff;
+    color: #ef394e;
+    border-right-color: #ef394e;
+}
+
+
+/* اگر روی محتوای خانه و آشپزخانه هستیم */
+
+.mega-menu:has(.home-content:hover)
+.mega-category:nth-child(4) {
+    background: #fff;
+    color: #ef394e;
+    border-right-color: #ef394e;
+}
+
+
+/* =========================================================
+   خاموش کردن Active موبایل هنگام رفتن به دسته دیگر
+========================================================= */
+
+.mega-menu:has(
+    .mega-category:nth-child(2):hover,
+    .laptop-content:hover
+)
+.mega-category:nth-child(1),
+
+.mega-menu:has(
+    .mega-category:nth-child(3):hover,
+    .digital-content:hover
+)
+.mega-category:nth-child(1),
+
+.mega-menu:has(
+    .mega-category:nth-child(4):hover,
+    .home-content:hover
+)
+.mega-category:nth-child(1) {
+    background: transparent;
+    color: #555;
+    border-right-color: transparent;
+}
+
+
+/* =========================================================
+   خانه و آشپزخانه
+   HTML تو 3 ستون دارد
+========================================================= */
+
+.home-content {
+    width: 770px;
+
+    padding: 22px 25px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    box-sizing: border-box;
+}
+
+.home-content .mega-columns {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 220px);
+
+    gap: 30px;
+
+    align-items: start;
+}
+
+.home-content .mega-column {
+    width: 220px;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+.home-content .mega-column h3 {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+
+    margin: 0 0 12px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    color: #333;
+
+    cursor: pointer;
+}
+
+.home-content .mega-column h3:hover {
+    color: #ef394e;
+    background: transparent;
+}
+
+.home-content .mega-column h3:hover i {
+    color: #ef394e;
+}
+
+.home-content .mega-column a {
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 10px;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    color: #777;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.home-content .mega-column a:hover {
+    color: #ef394e;
+    background: transparent;
+}
+
+.home-content a::after {
+    display: none !important;
+}
+
+.home-content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.home-content::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.home-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 45px;
+    
+    >i{
+        position: absolute;
+        font-size: 19px;
+        right: 245px ;
+        color: #a7a4a4f2;
+    }
+    >input {
+        width: 513px;
+        height: 44px;
+        border-radius: 22px;
+        border: none;
+        background-color: #f2f2f2;
+        margin-right: 8px;
+    }
+    ::placeholder{
+        padding: 56px;
+        color: #a7a4a4f2;
+        font-size: 13px;
+    }
+}
+.left-side-top{
+    display: flex;
+    margin-right: auto;
+    gap: 10.1px;
+    justify-content: center;
+    align-items: center; 
+    .ri-notification-2-line{
+        font-size: 21px;
+        margin-left: 11px;
+        color: #2f2f2f;
+    }.ri-login-box-line{
+        font-size: 21px;
+        color: #424750;
+        font-weight:300;
+    
+    }
+}
+.login-btn{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    width: 137px;
+    height: 40px;
+    padding: 0 13px;
+
+    border: 1px solid #e0e0e2;
+    border-radius: 8px;
+    background: #fff;
+
+    color: #424750;
+    font-size: 11px;
+    font-weight: 600;
+}
+.cut{
+    width: 1px;
+    height: 24px;
+    background: #e0e0e2;
+    display: inline-block;
+    margin: 0 13px;
+}
+.ri-shopping-cart-line{
+    font-size: 21px;
+    margin-right: 10px;
+    color: #2f2f2f;
+    margin-left: 20px;
+}   
+.main-header ul{
+display: flex;
+align-items: center;
+        >li{
+        height: 51px;
+        }
+}
+
+.main-header a{
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 5px;
+    padding: 0 11px;
+    height: 100%;
+    color: #5e5e5e;
+}
+.main-header li.divider{
+    width: 1px;
+    height: 16px;
+    background: #e0e0e2;
+    margin: 0 8px;
+}
+.main-header a::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0.5px;
+    height: 2px;
+    background: #ef394e;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .2s ease;
+}
+/* .main-header a:hover::after{
+    transform: scaleX(1);
+} */
+.main-header nav > ul > li:not(.location-up) > a:hover::after {
+    transform: scaleX(1);
+}
+.category>a>span{
+    font-size: 13.5px;
+    font-weight: 700;
+}
+li>a>span{
+    font-size: 12px;
+}
+/* .location-up{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+    background-color: #fef6ef;
+    border-radius: 33px;
+    padding: 12px;
+    width: 90px;
+    margin-left: 20px;
+    >i{
+        color: #f58359;
+        margin-left: 7px;
+        font-size: 19px;
+    }
+    >span{
+        font-size: 13px;
+        color: #f58359;
+    }
+    
+    
+    
+} */
+.main-header ul {
+    display: flex;
+    align-items: center;
+}
+
+.main-header ul > li {
+    height: 51px;
+}
+
+.main-header ul > li.location-up {
+    height: auto;
+    margin-right: auto;
+    margin-left: 20px;
+}
+
+.location-up > a {
+    width: 90px;
+    height: 30px;
+
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    background-color: #fef6ef;
+    border-radius: 20px;
+
+    color: #f58359;
+    white-space: nowrap;
+}
+
+.location-up > a::after {
+    display: none;
+}
+
+.location-up > a > i {
+    margin: 0;
+    font-size: 17px;
+    color: #f58359;
+}
+
+.location-up > a > span {
+    margin: 0;
+    padding: 0;
+
+    font-size: 12px;
+    line-height: 1;
+    color: #f58359;
+    white-space: nowrap;
+}
+
+/* ================================
+   Floating Support
+================================ */
+
+.floating-support {
+    position: fixed;
+    left: 24px;
+    bottom: 24px;
+    z-index: 99999;
+}
+
+.support-btn {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(
+    135deg,
+    #7658F1 30%,
+    #3F77FA 60%,
+    #3B79FB 70%
+    );
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.support-btn i {
+    font-size: 23px;
+}
+
+.support-btn:hover {
+    transform: scale(1.08);
+}
+
+.mySwiper {
+    z-index: 1;
+    width: 100%;
+    height: 400px;
+}
+
+.mySwiper .swiper-slide {
+    background: #444;
+}
+
+.mySwiper .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.swiper-button-next .swiper-navigation-icon,
+.swiper-button-prev .swiper-navigation-icon{
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    color: #0c0c0c;
+}
+
+.swiper-button-next,
+.swiper-button-prev{
+    width: 20px;
+    height: 20px;
+    background: white;
+    border: 0.5px solid gray;
+    border-radius: 50%;
+}
+.bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    gap: 50px;
+}
+.bar li a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 84px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.bar li p{
+    margin-top: 8px;
+    width: 100%;
+    text-align: center;
+    font-size:10px;
+    color: #3F4064;
+}
+.bar li img{
+    width: 52px;
+    height: 52px;
+}
+.more-icon{
+    width: 52px;
+    height: 52px;
+    background: #f0f0f1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.more-icon i{
+    font-size: 15px;
+    color: #a1a3a8;
+}
+.amazing {
+    width: 86%;
+    height: 320px;
+    margin: 20px auto;
+    background: #D62E4E;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    gap: 15px;
+    direction: rtl;
+}
+
+.amazingSwiper {
+    flex: 1;
+    height: 290px;
+    overflow: hidden;
+}
+.amazingSwiper .swiper-wrapper {
+    height: 100%;
+}
+.amazingSwiper .swiper-slide {
+    height: auto;
+    display: flex;
+}
+.product-card {
+    width: 200px;
+    height: 280px;
+}
+/* بخش سمت راست */
+.amazing-header {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.amazing-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.amazing-logo img:first-child {
+    width: 72px;
+    margin-bottom: 25px;
+}
+.amazing-logo img:last-child {
+    width: 132px;
+}
+/* تایمر */
+.timer {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin: 20px 0;
+    margin-bottom: 15px;
+}
+.timer span {
+    background: white;
+    color: #333;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 13px;
+}
+.timer p {
+    color: white;
+    font-size: 20px;
+}
+.amazing-all-products {
+    color: #2f2f2f;
+    background-color: #f3eded;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+.amazingSwiper .swiper-slide {
+    display: flex;
+    height: auto;
+}
+/* کارت محصول */
+.product-card {
+    background: white;
+    height: 290px;
+    border-radius: 3px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.product-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+.title {
+    line-height: 1.1;
+    min-height: 73px;
+    font-size: 14px;
+    color: #424750;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    /* -webkit-line-clamp: 2; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.old-price-box {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-right: auto;
+    justify-content: center;
+}
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 12px;
+}
+.discount {
+    background: #ef394e;
+    color: white;
+    border-radius: 8px;
+    padding: 1px 4px;
+    font-size: 13px;
+}
+.price-box {
+    text-align: center;
+    margin-right: auto;
+}
+.price {
+    font-size: 17px;
+    font-weight: bold;
+    color: #23254e;
+
+}
+.price small {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.amazing-next,
+.amazing-prev {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border: 0.5px solid gray;
+    border-radius: 50%;
+}
+
+.amazing-next .swiper-navigation-icon,
+.amazing-prev .swiper-navigation-icon{
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    color: #0c0c0c;
+}
+.toman-icon{
+  
+    width: 16px !important;
+    height: 16px !important;
+    color: #424750;
+}
+.show-all-card{
+    width: 75%;
+    height: 100%;
+    background: #fff;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #3f4064;
+    >span{
+        font-size: 12px;
+    }
+}
+
+.show-all-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    margin-bottom:17px ;
+
+}
+.images{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
+}
+.imagee{
+    width: 314px;
+    height: 100%;
+    border-radius: 20px;
+
+}
+
+.fast-section {
+    width: 86%;
+    height: 410px;
+    margin: 20px auto;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    background: #fcf3eb;
+    position: relative;
+}
+
+.fast-section .top-fast {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+}
+
+.fast-section .top-fast svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-left: 4px;
+}
+
+.fast-section .top-fast span {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 5px 4px;
+}
+
+/* ADDRESS */
+
+.main-fast {
+    width: 100%;
+    height: 45px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background: #f57f171a;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-fast-left {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.main-fast-left .ri-information-2-fill {
+    flex-shrink: 0;
+    font-size: 20px;
+    color: #934c0e;
+    margin-right: 8px;
+}
+
+.main-fast-left span {
+    font-size: 17px;
+    line-height: 1.5;
+    margin-right: 5px;
+}
+
+.main-fast-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.main-fast-right a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.main-fast-right a span {
+    font-size: 15px;
+    color: #9f5e26;
+}
+
+.ri-arrow-drop-left-line {
+    font-size: 35px;
+    color: #9f5e26;
+}
+
+/* FAST SWIPER */
+
+.fastSwiper {
+    width: 100%;
+    height: 320px;
+    margin-top: 16px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.fastSwiper .swiper-wrapper {
+    height: 100%;
+}
+
+.fastSwiper .swiper-slide {
+    height: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* OVERLAY */
+
+.fastSwiper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(255, 255, 255, 0.101);
+    backdrop-filter: blur(1.15px);
+    -webkit-backdrop-filter: blur(1px);
+
+    z-index: 20;
+    pointer-events: all;
+    border-radius: 8px;
+}
+
+
+.green-amazing {
+    width: 86%;
+    height: 325px;
+    margin: 20px auto;
+    background: #70ba2b;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    gap: 15px;
+    direction: rtl;
+}
+.green-amazing-header {
+    padding: 2px 1px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.green-amazing-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.green-amazing-logo img:first-child {
+    width: 65px;
+}
+.green-amazing-logo img:last-child {
+    width: 125px;
+    margin-top: 25px;
+}
+.green-timer {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    margin: 20px 0;
+}
+.green-timer span {
+    background: white;
+    color: #333;
+    width: 26px;
+    height: 26px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 13px;
+}
+.green-timer p {
+    color: white;
+    font-size: 20px;
+    padding: 2px;
+}
+.green-amazing-all-products {
+    color: #2f2f2f;
+    background-color: #fff;
+    padding: 9px 17px;
+    border-radius: 10px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.greenAmazingSwiper {
+    flex: 1;
+    height: 300px;
+    border-radius: 7px;
+    overflow: hidden;
+    position: relative;
+}
+.greenAmazingSwiper .swiper-wrapper {
+    height: 100%;
+}
+.greenAmazingSwiper .swiper-slide {
+    height: auto;
+    display: flex;
+}
+.greenAmazingSwiper .swiper-slide > a {
+    width: 100%;
+    text-decoration: none;
+}
+.green-product-card {
+    width: 100%;
+    height: 290px;
+    background: #fff;
+    border-radius: 3px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.green-product-card > img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+.green-title {
+    line-height: 1.2;
+    min-height: 73px;
+    font-size: 14px;
+    color: #424750;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    /* -webkit-line-clamp: 2; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 10px;
+}
+.green-old-price-box {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-right: auto;
+    justify-content: center;
+}
+
+.green-old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 12px;
+}
+.green-discount {
+    background: #ef394e;
+    color: white;
+    border-radius: 15px;
+    padding: 3px 4px;
+    font-size: 10px;
+}
+.green-price-box {
+    text-align: center;
+    margin-right: auto;
+}
+.green-price {
+    font-size: 19px;
+    font-weight: bold;
+    color: #23254e;
+}
+.green-toman-icon {
+    width: 16px !important;
+    height: 16px !important;
+}
+.green-amazing-next,
+.green-amazing-prev {
+    width: 32px;
+    height: 32px;
+    background: white;
+    border: 0.5px solid #aaa;
+    border-radius: 50%;
+}
+
+
+.green-amazing-next::after,
+.green-amazing-prev::after {
+    font-size: 16px;
+    color: #0c0c0c;
+}
+.green-show-all-card {
+    width: 75%;
+    height: 100%;
+    background: #fff;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #3f4064;
+}
+.green-show-all-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+.dastebandi {
+    width: 86%;
+    margin: 30px auto;
+    direction: rtl;
+    .titel-dastebandi {
+        width: 100%;
+        margin-bottom: 25px;
+        h1 {
+            font-size: 19px;
+            font-weight: 600;
+            text-align: right;
+            padding-right: 20px;
+            padding: 8px;
+        }
+    }
+    .up-dastebandi,
+    .bottem-dastebandi {
+        width: 100%;
+        > ul {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 0;
+            padding: 0;
+            > li {
+                flex: 1;
+                min-width: 0;
+                > a {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    > img {
+                        width: 95px;
+                        height: 95px;
+                    }
+                    > p {
+                        margin: 8px 0 0;
+                        padding: 0;
+                        font-size: 12px;
+                        color: #222;
+                    }
+                }
+            }
+        }
+    }
+    .bottem-dastebandi {
+        margin-top: 5px;
+    }
+}
+div.gifs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    >a>img{
+        width: 644px;
+        height: 257.6px;
+        border-radius: 15px;
+        margin-top: 10px;
+    }
+}
+.brands-section {
+    width: 86%;
+    height: 222px;
+    margin: 20px auto;
+    padding: 5px;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    background: #fff;
+    direction: rtl;
+}
+.brands-header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    >img{
+        padding: 10px;
+    }
+}
+
+.brands-header h2 {
+    margin-left: auto;
+    font-size: 20px;
+    color: #232323;
+}
+
+
+/* Swiper */
+
+.brandsSwiper {
+    width: 100%;
+    height: 175px;
+}
+
+
+/* =========================
+   هر اسلاید
+========================= */
+
+.brandsSwiper .swiper-slide {
+    height: 175px;
+
+    display: flex;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   لینک داخل کارت
+========================= */
+
+.brandsSwiper .swiper-slide a {
+    width: 100%;
+    height: 126px;
+
+    padding: 10px 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    color: #424750;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    background: #fff;
+}
+
+
+/* =========================
+   فضای مخصوص لوگو
+========================= */
+
+.brand-image-box {
+    width: 100%;
+    height: 86px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   خود لوگو
+========================= */
+
+.brand-image-box img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   اسم برند
+========================= */
+
+.brandsSwiper .swiper-slide p {
+    width: 100%;
+    height: 30px;
+    margin: 5px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 13px;
+    color: #424750;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+/* =========================
+   دکمه های Swiper
+========================= */
+
+.brands-prev,
+.brands-next {
+    width: 42px;
+    height: 42px;
+
+    margin-top: -21px;
+
+    border: 1px solid #ddd;
+    border-radius: 50%;
+
+    background: #fff;
+
+    box-sizing: border-box;
+}
+
+
+/* اندازه فلش */
+
+.brands-prev::after,
+.brands-next::after {
+    font-size: 18px;
+    font-weight: bold;
+
+    color: #424750;
+}
+
+
+/* =========================
+   بخش اصلی
+========================= */
+
+.vitamin-section {
+    width: 86%;
+    height: 430px;
+
+    margin: 20px auto;
+    padding: 15px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+
+    background: #fff;
+
+    direction: rtl;
+}
+
+
+/* =========================
+   هدر
+========================= */
+
+.vitamin-header {
+    width: 100%;
+    height: 85px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
+/* عنوان */
+
+.vitamin-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.vitamin-title h2 {
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    color: #232323;
+}
+
+.vitamin-title p {
+    margin: 0;
+
+    font-size: 15px;
+
+    color: #6b7280;
+}
+
+
+/* مشاهده همه بالای بخش */
+
+.vitamin-all {
+    margin-top: 8px;
+
+    padding: 10px 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    text-decoration: none;
+
+    color: #3f4064;
+
+    background: #f5f5f5;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   Swiper
+========================= */
+
+.vitaminSwiper {
+    width: 100%;
+    height: 350px;
+
+    position: relative;
+
+    direction: rtl;
+}
+
+
+/* =========================
+   اسلاید
+========================= */
+
+.vitaminSwiper .swiper-slide {
+    height: 350px;
+
+    display: flex;
+    align-items: stretch;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   کارت محصول
+========================= */
+
+.vitamin-card {
+    width: 100%;
+    height: 300px;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    text-decoration: none;
+
+    background: #fff;
+
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+
+    color: #424750;
+}
+
+
+/* =========================
+   تصویر
+========================= */
+.vitamin-image {
+    width: 100%;
+    height: 195px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.vitamin-image img {
+    max-width: 100%;
+    max-height: 180px;
+
+    width: auto;
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   نام محصول
+========================= */
+
+.vitamin-name {
+    height: 55px;
+
+    margin: 8px 0 4px;
+
+    display: -webkit-box;
+
+    -webkit-box-orient: vertical;
+    /* -webkit-line-clamp: 2; */
+
+    overflow: hidden;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    color: #424750;
+}
+
+
+/* =========================
+   قیمت قبلی
+========================= */
+
+.vitamin-old-price {
+    width: 100%;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 5px;
+
+    direction: ltr;
+}
+
+.vitamin-old-price del {
+    color: #b0b0b0;
+    text-decoration: line-through;
+    font-size: 12px;
+}
+
+
+/* تخفیف */
+
+.vitamin-discount {
+    min-width: 31px;
+    height: 18px;
+
+    padding: 0 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    border-radius: 12px;
+
+    background: #ef394e;
+
+    color: #fff;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   قیمت جدید
+========================= */
+
+.vitamin-price {
+    width: 100%;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 5px;
+
+    direction: ltr;
+}
+
+.vitamin-price span {
+    font-size: 18px;
+    font-weight: bold;
+
+    color: #23254e;
+}
+
+.vitamin-price img {
+    width: 16px;
+    height: 16px;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   کارت مشاهده همه
+========================= */
+
+.vitamin-show-all {
+    width: 100%;
+    height: 345px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    text-decoration: none;
+
+    color: #3f4064;
+
+    background: #fff;
+}
+
+
+/* دایره فلش */
+
+.vitamin-show-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #424750;
+    border-radius: 50%;
+
+    box-sizing: border-box;
+}
+
+.vitamin-show-icon i {
+    font-size: 25px;
+}
+
+
+/* متن */
+
+.vitamin-show-all span {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   دکمه های Swiper
+========================= */
+
+.vitamin-next,
+.vitamin-prev {
+    width: 48px;
+    height: 48px;
+
+    margin-top: -24px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #ddd;
+    border-radius: 50%;
+
+    background: #fff;
+}
+
+
+/* فلش */
+
+.vitamin-next::after,
+.vitamin-prev::after {
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #424750;
+}
+/* =========================
+   بخش اصلی
+========================= */
+
+.wallet-section {
+    width: 86%;
+    height: 405px;
+
+    margin: 20px auto;
+    padding: 15px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+
+    background: #fff;
+
+    direction: rtl;
+}
+
+
+/* =========================
+   هدر
+========================= */
+
+.wallet-header {
+    width: 100%;
+    height: 75px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+}
+
+
+/* عنوان */
+
+.wallet-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 5px;
+}
+
+.wallet-title h2 {
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    color: #232323;
+}
+
+.wallet-title p {
+    margin: 0;
+
+    font-size: 14px;
+
+    color: #6b7280;
+}
+
+
+/* مشاهده همه */
+
+.wallet-all {
+    margin-top: 8px;
+
+    padding: 10px 14px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    text-decoration: none;
+
+    color: #3f4064;
+
+    background: #f5f5f5;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+/* =========================
+   Swiper
+========================= */
+
+.walletSwiper {
+    width: 100%;
+    height: 320px;
+
+    position: relative;
+
+    direction: rtl;
+}
+
+
+/* =========================
+   اسلاید
+========================= */
+
+.walletSwiper .swiper-slide {
+    height: 320px;
+    display: flex;
+    align-items: stretch;
+}
+
+
+/* =========================
+   کارت محصول
+========================= */
+
+.wallet-card {
+    width: 100%;
+    height: 290px;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    text-decoration: none;
+
+    background: #fff;
+
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+
+    color: #424750;
+}
+
+
+/* =========================
+   تصویر
+========================= */
+
+.wallet-image {
+    width: 100%;
+    height: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+.wallet-image img {
+    display: block;
+
+    width: 190px;
+    height: auto;
+
+    max-width: 100%;
+    max-height: 180px;
+
+    object-fit: contain;
+}
+
+/* =========================
+   اسم محصول
+========================= */
+
+.wallet-name {
+    height: 55px;
+
+    margin: 8px 0 4px;
+
+    display: -webkit-box;
+
+    -webkit-box-orient: vertical;
+    /* -webkit-line-clamp: 2; */
+
+    overflow: hidden;
+
+    font-size: 15px;
+    line-height: 1.7;
+
+    color: #424750;
+}
+
+
+/* =========================
+   قیمت قبلی + تخفیف
+========================= */
+
+.wallet-old-price {
+    width: 100%;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+
+    justify-content: flex-start;
+
+    gap: 5px;
+
+    direction: ltr;
+}
+
+.wallet-old-price del {
+    color: #b0b0b0;
+    text-decoration: line-through;
+    font-size: 11px;
+}
+
+
+/* تخفیف */
+
+.wallet-discount {
+    min-width: 32px;
+    height: 19px;
+
+    padding: 0 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    border-radius: 12px;
+
+    background: #ef394e;
+
+    color: #fff;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   قیمت نهایی
+========================= */
+
+.wallet-price {
+    width: 100%;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+
+    justify-content: flex-start;
+
+    gap: 5px;
+
+    direction: ltr;
+}
+
+.wallet-price img {
+    width: 16px;
+    height: 16px;
+
+    object-fit: contain;
+}
+
+.wallet-price span {
+    font-size: 18px;
+    font-weight: bold;
+
+    color: #23254e;
+}
+
+.wallet-price small {
+    font-size: 11px;
+
+    font-weight: bold;
+
+    color: #23254e;
+}
+
+
+/* =========================
+   کارت مشاهده همه
+========================= */
+
+.wallet-show-all {
+    width: 100%;
+    height: 290px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    text-decoration: none;
+
+    color: #3f4064;
+
+    background: #fff;
+}
+
+
+/* دایره */
+
+.wallet-show-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #424750;
+    border-radius: 50%;
+
+    box-sizing: border-box;
+}
+
+.wallet-show-icon i {
+    font-size: 20px;
+}
+
+
+/* متن */
+
+.wallet-show-all span {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   دکمه های Swiper
+========================= */
+
+.wallet-next,
+.wallet-prev {
+    width: 48px;
+    height: 48px;
+
+    margin-top: -24px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #ddd;
+    border-radius: 50%;
+
+    background: #fff;
+}
+
+
+/* فلش */
+
+.wallet-next::after,
+.wallet-prev::after {
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #424750;
+}
+
+/* =========================
+   بخش هدفون
+========================= */
+
+.headphone-section {
+    width: 86%;
+    height: 405px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+
+    background: #fff;
+
+    direction: rtl;
+}
+
+
+/* =========================
+   هدر
+========================= */
+
+.headphone-header {
+    width: 100%;
+    height: 75px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+}
+
+
+.headphone-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 5px;
+}
+
+
+.headphone-title h2 {
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    color: #232323;
+}
+
+
+.headphone-title p {
+    margin: 0;
+
+    font-size: 14px;
+
+    color: #6b7280;
+}
+
+
+/* =========================
+   مشاهده همه
+========================= */
+
+.headphone-all {
+    margin-top: 8px;
+
+    padding: 10px 14px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    text-decoration: none;
+
+    color: #3f4064;
+
+    background: #f5f5f5;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+/* =========================
+   Swiper
+========================= */
+
+.headphoneSwiper {
+    width: 100%;
+    height: 295px;
+
+    position: relative;
+
+    direction: rtl;
+}
+
+
+/* =========================
+   اسلاید
+========================= */
+
+.headphoneSwiper .swiper-slide {
+    height: 295px;
+
+    display: flex;
+    align-items: stretch;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   کارت
+========================= */
+
+.headphone-card {
+    width: 100%;
+    height: 290px;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    text-decoration: none;
+
+    background: #fff;
+
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+
+    color: #424750;
+}
+
+
+/* =========================
+   تصویر
+========================= */
+
+.headphone-image {
+    width: 100%;
+    height: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+/* عکس بدون دفرمه شدن */
+
+.headphone-image img {
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    max-width: 100%;
+    max-height: 150px;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   نام محصول
+========================= */
+
+.headphone-name {
+    height: 45px;
+
+    margin: 6px 0 4px;
+
+    display: -webkit-box;
+
+    -webkit-box-orient: vertical;
+    /* -webkit-line-clamp: 2; */
+
+    overflow: hidden;
+
+    font-size: 14px;
+    line-height: 1.5;
+
+    color: #424750;
+}
+
+
+/* =========================
+   قیمت قبلی
+========================= */
+
+.headphone-old-price {
+    width: 100%;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+
+    justify-content: flex-start;
+
+    gap: 5px;
+
+    direction: ltr;
+}
+
+
+.headphone-old-price del {
+    color: #b0b0b0;
+    text-decoration: line-through;
+    font-size: 12px;
+}
+
+
+/* =========================
+   تخفیف
+========================= */
+
+.headphone-discount {
+    min-width: 35px;
+    height: 17px;
+
+    padding: 0 2px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    border-radius: 12px;
+
+    background: #ef394e;
+
+    color: #fff;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   قیمت نهایی
+========================= */
+
+.headphone-price {
+    width: 100%;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+
+    justify-content: flex-start;
+
+    gap: 5px;
+
+    direction: ltr;
+}
+
+
+.headphone-price img {
+    width: 16px;
+    height: 16px;
+
+    object-fit: contain;
+}
+
+
+.headphone-price span {
+    font-size: 18px;
+    font-weight: bold;
+
+    color: #23254e;
+}
+
+
+.headphone-price small {
+    font-size: 11px;
+
+    font-weight: bold;
+
+    color: #23254e;
+}
+
+
+/* =========================
+   کارت مشاهده همه
+========================= */
+
+.headphone-show-all {
+    width: 100%;
+    height: 290px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    text-decoration: none;
+
+    color: #3f4064;
+
+    background: #fff;
+}
+
+
+.headphone-show-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #424750;
+
+    border-radius: 50%;
+
+    box-sizing: border-box;
+}
+
+
+.headphone-show-icon i {
+    font-size: 20px;
+}
+
+
+.headphone-show-all span {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   دکمه ها
+========================= */
+
+.headphone-next,
+.headphone-prev {
+    width: 48px;
+    height: 48px;
+
+    margin-top: -24px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #ddd;
+
+    border-radius: 50%;
+
+    background: #fff;
+}
+
+
+.headphone-next::after,
+.headphone-prev::after {
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #424750;
+}
+
+/* =========================
+   بخش خودرو
+========================= */
+
+.car-section {
+    width: 86%;
+    height: 440px;
+
+    margin: 20px auto;
+    padding: 15px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+
+    background: #fff;
+
+    direction: rtl;
+}
+
+
+/* =========================
+   Header
+========================= */
+
+.car-header {
+    width: 100%;
+    height: 85px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+}
+
+
+/* عنوان */
+
+.car-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 5px;
+}
+
+.car-title h2 {
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    color: #232323;
+}
+
+.car-title p {
+    margin: 0;
+
+    font-size: 14px;
+
+    color: #6b7280;
+}
+
+
+/* =========================
+   مشاهده همه
+========================= */
+
+.car-all {
+    margin-top: 8px;
+
+    padding: 10px 14px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    text-decoration: none;
+
+    color: #3f4064;
+
+    background: #f5f5f5;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.ri-arrow-left-s-line{
+    font-size: 20px;
+}
+/* =========================
+   Swiper
+========================= */
+
+.carSwiper {
+    width: 100%;
+    height: 350px;
+
+    position: relative;
+
+    direction: rtl;
+}
+
+
+/* =========================
+   Slide
+========================= */
+
+.carSwiper .swiper-slide {
+    width: 280px;
+    height: 330px;
+
+    display: flex;
+    align-items: stretch;
+
+    box-sizing: border-box;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   کارت محصول
+========================= */
+
+.car-card {
+    width: 100%;
+    height: 325px;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    text-decoration: none;
+
+    background: #fff;
+
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+
+    color: #424750;
+}
+
+
+/* =========================
+   تصویر
+========================= */
+
+.car-image {
+    width: 100%;
+    height: 175px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+/* خود عکس */
+
+.car-image img {
+    width: 160px;
+    height: 160px;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   نام محصول
+========================= */
+
+.car-name {
+    width: 100%;
+    height: 55px;
+
+    margin: 8px 0 4px;
+
+    display: -webkit-box;
+
+    -webkit-box-orient: vertical;
+    /* -webkit-line-clamp: 2; */
+
+    overflow: hidden;
+
+    font-size: 14px;
+    line-height: 1.8;
+
+    color: #424750;
+
+    text-align: right;
+}
+
+
+/* =========================
+   قیمت قبلی
+========================= */
+
+.car-old-price {
+    width: 100%;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 5px;
+
+    direction: ltr;
+}
+
+.car-old-price del {
+    color: #b0b0b0;
+    text-decoration: line-through;
+    font-size: 12px;
+}
+
+
+/* تخفیف */
+
+.car-discount {
+    min-width: 40px;
+    height: 17px;
+
+    padding: 0 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    border-radius: 12px;
+
+    background: #ef394e;
+
+    color: #fff;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   قیمت نهایی
+========================= */
+
+.car-price {
+    width: 100%;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 5px;
+
+    direction: ltr;
+}
+
+
+.car-price img {
+    width: 16px;
+    height: 16px;
+
+    object-fit: contain;
+}
+.car-price span {
+    font-size: 18px;
+    font-weight: bold;
+
+    color: #23254e;
+}
+
+.car-price small {
+    font-size: 11px;
+
+    font-weight: bold;
+
+    color: #23254e;
+}
+
+/* =========================
+   مشاهده همه
+========================= */
+
+.car-show-all {
+    width: 100%;
+    height: 330px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    box-sizing: border-box;
+
+    text-decoration: none;
+
+    color: #3f4064;
+    background: transparent;
+
+    border: none;
+    border-radius: 0;
+}
+
+.car-show-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    border: 2px solid #424750;
+    border-radius: 50%;
+}
+
+.car-show-icon i {
+    font-size: 20px;
+}
+
+.car-show-all span {
+    font-size: 14px;
+    font-weight: 600;
+}
+/* =========================
+   دکمه های Swiper
+========================= */
+
+.car-next,
+.car-prev {
+    width: 48px;
+    height: 48px;
+
+    margin-top: -24px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #ddd;
+    border-radius: 50%;
+
+    background: #fff;
+}
+
+
+/* فلش */
+
+.car-next::after,
+.car-prev::after {
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #424750;
+}
+
+/* =========================
+   بخش کمپینگ
+========================= */
+
+.camping-section {
+    width: 86%;
+    height: 445px;
+
+    margin: 20px auto;
+    padding: 15px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+
+    background: #fff;
+
+    direction: rtl;
+}
+
+
+/* =========================
+   هدر
+========================= */
+
+.camping-header {
+    width: 100%;
+    height: 85px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+}
+
+
+.camping-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 5px;
+}
+
+
+.camping-title h2 {
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    color: #232323;
+}
+
+
+.camping-title p {
+    margin: 0;
+
+    font-size: 14px;
+
+    color: #6b7280;
+}
+
+
+/* =========================
+   مشاهده همه
+========================= */
+
+.camping-all {
+    margin-top: 8px;
+
+    padding: 10px 14px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    text-decoration: none;
+
+    color: #3f4064;
+
+    background: #f5f5f5;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+/* =========================
+   Swiper
+========================= */
+
+.campingSwiper {
+    width: 100%;
+    height: 350px;
+
+    position: relative;
+
+    direction: rtl;
+}
+
+
+/* =========================
+   اسلاید
+========================= */
+
+.campingSwiper .swiper-slide {
+    width: 280px;
+    height: 330px;
+
+    display: flex;
+    align-items: stretch;
+
+    box-sizing: border-box;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   کارت
+========================= */
+
+.camping-card {
+    width: 100%;
+    height: 325px;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    text-decoration: none;
+
+    background: #fff;
+
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+
+    color: #424750;
+}
+
+
+/* =========================
+   تصویر
+========================= */
+
+.camping-image {
+    width: 100%;
+    height: 160px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+.camping-image img {
+    width: 160px;
+    height: 160px;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   نام محصول
+========================= */
+
+.camping-name {
+    width: 100%;
+    height: 55px;
+
+    margin: 8px 0 4px;
+
+    display: -webkit-box;
+
+    -webkit-box-orient: vertical;
+    /* -webkit-line-clamp: 2; */
+
+    overflow: hidden;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    color: #424750;
+
+    text-align: right;
+}
+
+
+/* =========================
+   قیمت قبلی
+========================= */
+
+.camping-old-price {
+    width: 100%;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 5px;
+
+    direction: ltr;
+}
+
+
+.camping-old-price del {
+    color: #b0b0b0;
+    text-decoration: line-through;
+    font-size: 12px;
+}
+
+
+/* تخفیف */
+
+.camping-discount {
+    min-width: 34px;
+    height: 17px;
+
+    padding: 0 7px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    border-radius: 12px;
+
+    background: #ef394e;
+
+    color: #fff;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   قیمت نهایی
+========================= */
+
+.camping-price {
+    width: 100%;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 5px;
+
+    direction: ltr;
+}
+
+
+.camping-price span {
+    font-size: 17px;
+    font-weight: bold;
+
+    color: #23254e;
+}
+
+.camping-price img{
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+.camping-price small {
+    font-size: 11px;
+
+    font-weight: bold;
+
+    color: #23254e;
+}
+
+.travel-show-all {
+    width: 100%;
+    height: 330px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    box-sizing: border-box;
+
+    text-decoration: none;
+
+    color: #3f4064;
+    background: transparent;
+
+    border: none;
+    border-radius: 0;
+}
+
+
+/* دایره فلش */
+
+.travel-show-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    border: 2px solid #424750;
+    border-radius: 50%;
+}
+
+.travel-show-icon i {
+    font-size: 20px;
+}
+
+
+/* متن */
+
+.travel-show-all span {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* =========================
+   بخش پرفروش ترین
+========================= */
+
+.best-selling-section {
+    width: 86%;
+    height: 440px;
+
+    margin: 20px auto;
+    padding: 15px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+
+    background: #fff;
+}
+
+
+/* =========================
+   هدر
+========================= */
+
+.best-selling-header {
+    width: 100%;
+    height: 70px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+
+    box-sizing: border-box;
+}
+
+.best-selling-header h2 {
+    display: flex;
+    margin-top: 26px;
+    margin-right: 16px;
+    margin-left: auto;
+    font-size: 19px;
+    font-weight: 600;
+
+    color: #232323;
+}
+
+
+/* =========================
+   Swiper
+========================= */
+
+.bestSellingSwiper {
+    width: 100%;
+    height: 400px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   اسلاید
+========================= */
+
+.bestSellingSwiper .swiper-slide {
+    height: 390px;
+
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   محصول
+========================= */
+
+.best-product {
+    width: 100%;
+    height: 120px;
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+}
+
+
+/* =========================
+   عکس
+========================= */
+
+.best-product img {
+    width: 75px;
+    height: 105px;
+
+    flex-shrink: 0;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =========================
+   اطلاعات محصول
+========================= */
+
+.best-product-info {
+    flex: 1;
+
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding-right: 8px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   شماره
+========================= */
+
+.best-rank {
+    width: 22px;
+    height: 22px;
+
+    flex-shrink: 0;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ef394e;
+
+    color: #fff;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   متن
+========================= */
+
+.best-product-info p {
+    margin: 0;
+
+    max-width: 190px;
+    margin-left: 10px;
+    font-size: 12px;
+    line-height: 1.8;
+
+    color: #3f4064;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    /* -webkit-line-clamp: 2; */
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   دکمه های Swiper
+========================= */
+
+.best-selling-next,
+.best-selling-prev {
+    width: 48px;
+    height: 48px;
+
+    margin-top: -24px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #ddd;
+    border-radius: 50%;
+
+    background: #fff;
+}
+
+.best-selling-next::after,
+.best-selling-prev::after {
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #424750;
+}
+
+/* =========================
+   بخش محصولات داغ
+========================= */
+
+.hot-products-section {
+    width: 86%;
+    height: 440px;
+
+    margin: 20px auto;
+    padding: 15px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+
+    background: #fff;
+}
+
+
+/* =========================
+   هدر
+========================= */
+
+.hot-products-header {
+    width: 100%;
+    height: 70px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+
+    box-sizing: border-box;
+}
+
+.hot-products-header h2 {
+    display: flex;
+
+    margin-top: 26px;
+    margin-right: 16px;
+    margin-left: auto;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    color: #232323;
+}
+
+
+/* =========================
+   Swiper
+========================= */
+
+.hotProductsSwiper {
+    width: 100%;
+    height: 400px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   اسلاید
+========================= */
+
+.hotProductsSwiper .swiper-slide {
+    height: 390px;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+/* =========================
+   محصول
+========================= */
+
+.hot-product {
+    width: 100%;
+    height: 120px;
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+
+/* =========================
+   عکس
+========================= */
+
+.hot-product img {
+    width: 75px;
+    height: 105px;
+
+    flex-shrink: 0;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =========================
+   اطلاعات محصول
+========================= */
+
+.hot-product-info {
+    flex: 1;
+
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding-right: 8px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   شماره
+========================= */
+
+.hot-rank {
+    width: 22px;
+    height: 22px;
+
+    flex-shrink: 0;
+
+    margin-bottom: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ef394e;
+
+    color: #fff;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   متن
+========================= */
+
+.hot-product-info p {
+    margin: 0;
+    margin-left: 10px;
+
+    max-width: 190px;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    color: #3f4064;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    /* -webkit-line-clamp: 2; */
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   دکمه‌های Swiper
+========================= */
+
+.hot-products-next,
+.hot-products-prev {
+    width: 48px;
+    height: 48px;
+
+    margin-top: -24px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #ddd;
+    border-radius: 50%;
+
+    background: #fff;
+}
+
+.hot-products-next::after,
+.hot-products-prev::after {
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #424750;
+}
+
+.shayan-footer {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    background: #fff;
+    color: #3f4064;
+}
+
+
+/* =====================================================
+   محتوای اصلی
+===================================================== */
+
+.shayan-footer-inner {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 20px;
+}
+
+
+/* =====================================================
+   خط
+===================================================== */
+
+.shayan-footer .sf-line {
+    width: calc(100% + 40px);
+    height: 0.5px;
+
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+    margin-right: -20px;
+
+    background-color: #97989c35;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   هدر
+===================================================== */
+
+.shayan-footer .sf-header {
+    width: 100%;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+}
+
+.shayan-footer .sf-header > img {
+    width: 195px;
+    height: 30px;
+    display: block;
+}
+
+.shayan-footer .sf-header > a {
+    width: 137px;
+    height: 40px;
+
+    margin-right: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: 1px solid #a1a3a86e;
+    border-radius: 8px;
+
+    text-decoration: none;
+}
+
+.shayan-footer .sf-header > a > span {
+    color: #a1a3a8;
+    font-size: 12px;
+}
+
+.shayan-footer .sf-header > a > i {
+    margin-right: 5px;
+    color: #a1a3a8;
+    font-size: 20px;
+}
+
+
+/* =====================================================
+   پشتیبانی
+===================================================== */
+
+.shayan-footer .sf-support {
+    width: 100%;
+    margin-top: 12px;
+
+    display: flex;
+    align-items: center;
+}
+
+.shayan-footer .sf-support > p {
+    margin: 0;
+    color: #6b6c70;
+    font-size: 12px;
+}
+
+.shayan-footer .sf-support > div {
+    width: 1.5px;
+    height: 12px;
+
+    margin: 3px 20px;
+
+    flex-shrink: 0;
+
+    background-color: #898a8ecf;
+}
+
+
+/* =====================================================
+   خدمات
+===================================================== */
+
+.shayan-footer .sf-services {
+    width: 100%;
+    height: 103px;
+
+    margin-top: 50px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.shayan-footer .sf-services > div {
+    width: 20%;
+    height: 103px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.shayan-footer .sf-services > div > a {
+    width: 100%;
+    height: 103px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shayan-footer .sf-services > div > a > img {
+    width: auto;
+    height: 56px;
+    max-width: 100%;
+
+    display: block;
+}
+
+.shayan-footer .sf-services > div > a > p {
+    margin: 8px 0 0;
+
+    color: #434343;
+    font-size: 11px;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   لینک‌ها
+===================================================== */
+
+.shayan-footer .sf-options {
+    width: 100%;
+    margin-top: 20px;
+
+    display: flex;
+    align-items: flex-start;
+}
+
+.shayan-footer .sf-digikala,
+.shayan-footer .sf-customer,
+.shayan-footer .sf-guide {
+    width: 25%;
+    height: 270px;
+
+    line-height: 35px;
+}
+
+.shayan-footer .sf-digikala > p,
+.shayan-footer .sf-customer > p,
+.shayan-footer .sf-guide > p {
+    margin: 0;
+
+    color: #3f4064;
+    font-size: 16px;
+}
+
+.shayan-footer .sf-digikala > a,
+.shayan-footer .sf-customer > a,
+.shayan-footer .sf-guide > a {
+    display: block;
+
+    color: #81858b;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   ستون آخر
+===================================================== */
+
+.shayan-footer .sf-last {
+    width: 25%;
+    min-width: 0;
+
+    line-height: 50px;
+}
+
+.shayan-footer .sf-last > h4 {
+    margin: 0;
+    font-size: 15px;
+}
+
+.shayan-footer .sf-last > div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.shayan-footer .sf-last > div > i {
+    color: #a1a3a8;
+    font-size: 40px;
+}
+
+
+/* =====================================================
+   فرم ایمیل
+===================================================== */
+
+.shayan-footer .sf-last > form {
+    width: 100%;
+    max-width: 100%;
+
+    margin-top: 15px;
+
+    display: flex;
+    align-items: center;
+}
+
+.shayan-footer .sf-email {
+    width: 296px;
+    max-width: calc(100% - 58px);
+    height: 48px;
+
+    padding: 0 12px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #f0f0f1;
+}
+
+.shayan-footer .sf-submit {
+    width: 53px;
+    height: 48px;
+
+    margin-right: 5px;
+
+    flex-shrink: 0;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #dfdfdf;
+
+    color: white;
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   اپلیکیشن
+===================================================== */
+
+.shayan-footer .sf-app {
+    width: 100%;
+    height: 74px;
+
+    padding: 8px 20px;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 8px;
+
+    background-color: #3c4b6d;
+
+    overflow: hidden;
+}
+
+.shayan-footer .sf-app-first {
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+.shayan-footer .sf-app-first > img {
+    width: 44px;
+    height: 44px;
+
+    display: block;
+}
+
+.shayan-footer .sf-app-first > h3 {
+    margin: 0 16px 0 0;
+
+    color: #fff;
+    font-size: 21px;
+
+    white-space: nowrap;
+}
+
+.shayan-footer .sf-app-second {
+    margin-right: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    min-width: 0;
+}
+
+.shayan-footer .sf-app-second > a {
+    display: block;
+    flex-shrink: 1;
+}
+
+.shayan-footer .sf-app-second > a > img {
+    width: 142px;
+    height: 44px;
+
+    max-width: 100%;
+
+    display: block;
+}
+
+.shayan-footer .sf-app-second .sf-more {
+    width: 44px;
+    height: 44px;
+
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 5px;
+
+    background: #fff;
+}
+
+.shayan-footer .sf-more > span {
+    position: relative;
+
+    color: #242424d5;
+    bottom: 7px;
+
+    font-size: 40px;
+    font-weight: 900;
+}
+
+
+/* =====================================================
+   درباره
+===================================================== */
+
+.shayan-footer .sf-about {
+    width: 100%;
+    margin-top: 50px;
+
+    display: flex;
+    align-items: flex-start;
+}
+
+.shayan-footer .sf-explanation {
+    width: calc(100% - 468px);
+    min-width: 0;
+
+    line-height: 25px;
+}
+
+.shayan-footer .sf-explanation > h1 {
+    margin: 0 0 18px;
+
+    color: #62666D;
+    font-size: 20px;
+}
+
+.shayan-footer .sf-explanation > p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.shayan-footer .sf-first-line {
+    color: #6b6c70;
+}
+
+.shayan-footer .sf-second-line {
+    color: #6b6c70bc;
+}
+
+.shayan-footer .sf-third-line {
+    color: #6b6c7050;
+}
+
+.shayan-footer .sf-explanation > a {
+    display: inline-block;
+
+    margin-top: 13px;
+
+    color: #1672dd;
+    font-size: 13px;
+
+    text-decoration: none;
+}
+
+
+
+.shayan-footer .sf-badges {
+    width: 468px;
+    height: 109px;
+
+    display: flex;
+    gap: 8px;
+
+    flex-shrink: 0;
+}
+
+.shayan-footer .sf-badges > a {
+    width: 109px;
+    height: 109px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: 0.5px solid #5d5e6270;
+    border-radius: 8px;
+}
+
+.shayan-footer .sf-badges > a > img {
+    width: 73px;
+    height: 80px;
+
+    display: block;
+}
+
+
+.shayan-footer .sf-rights {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.shayan-footer .sf-rights > p {
+    width: 100%;
+
+    padding: 32px 0;
+    margin: 0;
+
+    color: #81858b;
+    font-size: 13px;
+
+    text-align: center;
+}
+
+
+
+.shayan-footer > .sf-bottom-icons {
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    background-color: #81858b6b;
+}
+
+.shayan-footer .sf-row-one,
+.shayan-footer .sf-row-two {
+    width: 100%;
+    max-width: 100%;
+
+    display: flex;
+    gap: 0.5px;
+
+    margin: 0;
+    padding: 0;
+}
+
+.shayan-footer .sf-row-one {
+    height: 80.5px;
+}
+
+.shayan-footer .sf-row-two {
+    height: 80.5px;
+}
+
+.shayan-footer .sf-row-one > a,
+.shayan-footer .sf-row-two > a {
+    flex: 1;
+    min-width: 0;
+
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #f0f0f1;
+}
+
+.shayan-footer .sf-row-one > a > img {
+    height: 20px;
+    width: auto;
+    max-width: 100%;
+}
+
+.shayan-footer .sf-row-two > a > img {
+    height: 20px;
+    width: auto;
+    max-width: 130px;
+}
+
+
+.shayan-footer img {
+    max-width: 100%;
+}
+
+.shayan-footer a {
+    max-width: 100%;
+}
